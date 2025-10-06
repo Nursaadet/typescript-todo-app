@@ -1,6 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
 import TodoListItem from "./TodoListItem";
+import "./style.css";
 
 interface ITodoList extends ITodoListFn {
   todos: ITodoType[];
@@ -13,6 +14,7 @@ const TodoList: React.FC<ITodoList> = ({ todos, deleteTodo, toggleTodo }) => {
   return (
     <Grid
       container
+      
       sx={{
         display: "flex",
         justifyContent: "center",
@@ -23,6 +25,7 @@ const TodoList: React.FC<ITodoList> = ({ todos, deleteTodo, toggleTodo }) => {
     >
       {/* In Progress Todos */}
       <Grid
+        className="myscrool scrool-progress"
         sx={{
           minHeight: "350px",
           maxHeight: "350px",
@@ -30,6 +33,7 @@ const TodoList: React.FC<ITodoList> = ({ todos, deleteTodo, toggleTodo }) => {
           border: "1px solid purple",
           borderRadius: "0.5rem",
           flex: { xs: "70%", sm: "30%", md: "40%" },
+          position: "relative",
         }}
       >
         <Typography
@@ -59,6 +63,7 @@ const TodoList: React.FC<ITodoList> = ({ todos, deleteTodo, toggleTodo }) => {
 
       {/* Completed Todos */}
       <Grid
+        className="myscrool scrool-completed"
         sx={{
           minHeight: "350px",
           maxHeight: "350px",
@@ -66,14 +71,15 @@ const TodoList: React.FC<ITodoList> = ({ todos, deleteTodo, toggleTodo }) => {
           border: "1px solid green",
           borderRadius: "0.5rem",
           flex: { xs: "70%", sm: "30%", md: "40%" },
+          position: "relative",
         }}
       >
         <Typography
           className="title"
-          sx={{ color: "green" }}
           align="center"
           variant="h4"
           mt={2}
+          sx={{color:"green"}}
         >
           Completed Todos
         </Typography>
@@ -97,3 +103,4 @@ const TodoList: React.FC<ITodoList> = ({ todos, deleteTodo, toggleTodo }) => {
 };
 
 export default TodoList;
+
