@@ -1,10 +1,11 @@
-
+import Container from "@mui/material/Container";
+import Main from "./pages/Main";
 
 function App() {
   return (
-    <div>
-     hi
-    </div>
+    <Container>
+      <Main />
+    </Container>
   );
 }
 
